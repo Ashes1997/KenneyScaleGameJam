@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Kenney Scale Game Jam"
+run/main_scene="res://entities/blob/level.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
@@ -18,6 +19,10 @@ config/icon="res://assets/sprites/icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Kenney Scale Game Jam"
 
 [physics]
 
