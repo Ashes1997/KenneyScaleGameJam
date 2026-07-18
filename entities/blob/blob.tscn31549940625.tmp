@@ -12,14 +12,12 @@ radius = 41.01219
 script = ExtResource("1_3p034")
 
 [node name="body" type="Sprite2D" parent="." unique_id=1393596767]
-texture_filter = 1
 texture = ExtResource("2_emva4")
 
 [node name="face" type="Sprite2D" parent="." unique_id=62003534]
 clip_children = 2
 z_index = 1
 z_as_relative = false
-texture_filter = 1
 texture = ExtResource("3_emva4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=533134832]
