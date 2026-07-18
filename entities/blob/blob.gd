@@ -1,3 +1,4 @@
+class_name Blob
 extends CharacterBody2D
 
 
@@ -6,6 +7,7 @@ const JUMP_VELOCITY = -500.0
 @export var scale_speed: float = 2.0
 @export var max_scale: float = 4.0
 @export var min_scale: float = 0.25
+@export var slingshot_strength: float = 750
 var target:float=1.0
 
 func _process(delta: float) -> void:
@@ -23,13 +25,21 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y += JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
+	
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 	move_and_slide()
+
+func slingshot_to(anchor_position:Vector2):
+	print("anchor: ", anchor_position, "  blob: ", global_position)
+	var direction: Vector2 = (anchor_position - global_position).normalized()
+	velocity += direction*slingshot_strength
+	
