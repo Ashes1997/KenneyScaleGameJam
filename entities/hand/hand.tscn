@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://sdd2nrranms5"]
 
+[ext_resource type="Script" uid="uid://2tkrbku61pmd" path="res://entities/hand/hand.gd" id="1_25362"]
+[ext_resource type="Texture2D" uid="uid://d3ax22yv0d435" path="res://assets/sprites/blue_hand_open.png" id="2_ondc2"]
+[ext_resource type="Texture2D" uid="uid://toaajat6pjr4" path="res://assets/sprites/blue_hand_closed.png" id="3_1ien0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_so7t8"]
+radius = 40.0
+
 [node name="Hand" type="Node2D" unique_id=157425726]
+script = ExtResource("1_25362")
+open_texture = ExtResource("2_ondc2")
+closed_texture = ExtResource("3_1ien0")
+
+[node name="ReachRay" type="RayCast2D" parent="." unique_id=906180206]
+
+[node name="HandLine" type="Line2D" parent="." unique_id=1892659997]
+default_color = Color(0.8548094, 5.390644e-06, 0.53184956, 1)
+
+[node name="GrabArea" type="Area2D" parent="." unique_id=1116723467]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea" unique_id=434166046]
+shape = SubResource("CircleShape2D_so7t8")
+
+[node name="HandSprite" type="Sprite2D" parent="." unique_id=89531259]
+position = Vector2(-2.5000014, -2.79412)
+scale = Vector2(1.9705881, 1.9705881)
+texture = ExtResource("2_ondc2")
