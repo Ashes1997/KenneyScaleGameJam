@@ -1,3 +1,4 @@
+class_name Hand
 extends Node2D
 
 signal grabbed(anchor_position: Vector2)
@@ -38,12 +39,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		_try_release()
 	elif event.is_action_pressed("slingshot") and is_grabbing:
 		slingshot_requested.emit(anchor_position)
+		_try_release()
 
 func  _try_grab() -> void:
 	var candidates := grab_area.get_overlapping_bodies()
 	if !candidates.is_empty():
 		var target: Node2D = candidates[0]
-		anchor_position = target.global_position
+		anchor_position = global_position
 		is_grabbing = true
 		hand_sprite.texture = closed_texture
 		grabbed.emit(anchor_position)
