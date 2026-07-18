@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Kenney Scale Game Jam"
+run/main_scene="res://entities/blob/level.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
@@ -31,6 +32,9 @@ slingshot={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(223, 7),"global_position":Vector2(232, 55),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+[dotnet]
+
+project/assembly_name="Kenney Scale Game Jam"
 
 [physics]
 
