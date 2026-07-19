@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://0e77fb6g57ig"]
+
+[ext_resource type="PackedScene" uid="uid://sdd2nrranms5" path="res://entities/hand/hand.tscn" id="1_kntbq"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://assets/sprites/icon.svg" id="2_1btn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_so7t8"]
+
+[node name="HandtestLevel" type="Node2D" unique_id=208167984]
+
+[node name="Hand" parent="." unique_id=157425726 instance=ExtResource("1_kntbq")]
+body_path = NodePath("../BodyPlaceholder")
+
+[node name="BodyPlaceholder" type="Node2D" parent="." unique_id=1901610502]
+position = Vector2(20, 20)
+
+[node name="Grabbable" type="StaticBody2D" parent="." unique_id=1179800748]
+position = Vector2(86, 59)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabbable" unique_id=382338320]
+shape = SubResource("RectangleShape2D_so7t8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Grabbable" unique_id=214247530]
+position = Vector2(-2.9802322e-07, 6.556511e-07)
+scale = Vector2(0.15625001, 0.15625)
+texture = ExtResource("2_1btn7")
