@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://e44xhi7swkd7" path="res://levels/test_level/platfomer.tscn" id="1_2k852"]
 [ext_resource type="PackedScene" uid="uid://c7mownihw8nsk" path="res://player/player.tscn" id="1_frr1w"]
+[ext_resource type="PackedScene" uid="uid://b4quustb1pu7i" path="res://entities/grabBlock/grab_block.tscn" id="3_2k852"]
 
 [node name="Node2D" type="Node2D" unique_id=45826005]
 
@@ -9,3 +10,12 @@
 
 [node name="Player" parent="." unique_id=1479543784 instance=ExtResource("1_frr1w")]
 position = Vector2(166, 574)
+
+[node name="GrabBlock" parent="." unique_id=295953617 instance=ExtResource("3_2k852")]
+position = Vector2(989, 1312)
+
+[node name="GrabBlock2" parent="." unique_id=2035619744 instance=ExtResource("3_2k852")]
+position = Vector2(1605, 917)
+
+[node name="GrabBlock3" parent="." unique_id=1892893042 instance=ExtResource("3_2k852")]
+position = Vector2(2381, 710)

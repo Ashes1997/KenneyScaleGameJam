@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b4quustb1pu7i"]
+
+[ext_resource type="Texture2D" uid="uid://btvrxdxic4shs" path="res://assets/sprites/star.png" id="1_rctpg"]
+
+[node name="GrabBlock" type="StaticBody2D" unique_id=295953617]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=913323556]
+texture = ExtResource("1_rctpg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=206755902]
+polygon = PackedVector2Array(0, -34, 16, -19, 36, -11, 25, 11, 24, 32, -3, 26, -22, 29, -24, 9, -31, -9, -15, -17)
