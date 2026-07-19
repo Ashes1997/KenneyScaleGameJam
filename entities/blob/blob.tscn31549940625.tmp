@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkoc711kvmruh"]
 
-[ext_resource type="Script" uid="uid://cws7juyb6bi5a" path="res://entities/blob/blob.gd" id="1_3p034"]
+[ext_resource type="Script" uid="uid://cws7juyb6bi5a" path="res://entities/blob/character_body_2d.gd" id="1_3p034"]
 [ext_resource type="Texture2D" uid="uid://dljffyts6qblq" path="res://assets/sprites/blue_body_circle.png" id="2_emva4"]
 [ext_resource type="Texture2D" uid="uid://biargy8x636wi" path="res://assets/sprites/face_c.png" id="3_emva4"]
 [ext_resource type="Script" uid="uid://cmvjnbalftudg" path="res://entities/blob/camera.gd" id="4_frw3a"]
@@ -12,14 +12,12 @@ radius = 41.01219
 script = ExtResource("1_3p034")
 
 [node name="body" type="Sprite2D" parent="." unique_id=1393596767]
-texture_filter = 1
 texture = ExtResource("2_emva4")
 
 [node name="face" type="Sprite2D" parent="." unique_id=62003534]
 clip_children = 2
 z_index = 1
 z_as_relative = false
-texture_filter = 1
 texture = ExtResource("3_emva4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=533134832]

@@ -4,17 +4,23 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
+@export var death_y: float = 100000.0
 @export var scale_speed: float = 2.0
 @export var max_scale: float = 4.0
 @export var min_scale: float = 0.25
 @export var min_scale_gravity: float = 0.5
 @export var max_scale_gravity: float = 2
 @export var slingshot_strength: float = 750
+@export var face_strength = 0.1
+@export var max_face = 14.0
+@export var follow_speed = 8.0
 var target:float=1.0
 var target_gravity:float=1.0
 var is_hanging: bool = false
 var grab_anchor: Vector2 = Vector2.ZERO
 var base_arm_length: float = 0.0
+
+@onready var face=$face
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("scale_up"):
@@ -43,6 +49,10 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+	var offset = velocity*face_strength
+	offset= offset.limit_length(max_face)
+	face.position = face.position.lerp(offset,follow_speed*delta)
+
 	move_and_slide()
 
 	if is_hanging:
@@ -54,6 +64,9 @@ func _physics_process(delta: float) -> void:
 			var radial := velocity.dot(dir)
 			if radial > 0.0:
 				velocity -= dir * radial
+
+	if global_position.y>death_y:
+		get_tree().reload_current_scene()
 
 func slingshot_to(anchor_position:Vector2):
 	var direction: Vector2 = (anchor_position - global_position).normalized()
