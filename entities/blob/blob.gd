@@ -7,8 +7,11 @@ const JUMP_VELOCITY = -500.0
 @export var scale_speed: float = 2.0
 @export var max_scale: float = 4.0
 @export var min_scale: float = 0.25
+@export var min_scale_gravity: float = 0.5
+@export var max_scale_gravity: float = 2
 @export var slingshot_strength: float = 750
 var target:float=1.0
+var target_gravity:float=1.0
 var is_hanging: bool = false
 var grab_anchor: Vector2 = Vector2.ZERO
 var base_arm_length: float = 0.0
@@ -20,11 +23,12 @@ func _process(delta: float) -> void:
 		target-=scale_speed*delta
 
 	target= clamp(target,min_scale,max_scale)
+	target_gravity= clamp(target,min_scale_gravity,max_scale_gravity)
 	scale = Vector2(target,target)
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * target
+		velocity += get_gravity() * delta * target_gravity
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
