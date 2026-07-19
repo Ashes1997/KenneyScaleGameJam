@@ -68,6 +68,11 @@ scale_down={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="world"
+2d_render/layer_2="grab_only"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
