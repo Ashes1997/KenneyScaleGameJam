@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://gotee24r7htk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgjsn"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+
+[node name="menu" type="Control" unique_id=1865914391]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=1754107541]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.913635
+offset_top = -63.08899
+offset_right = 86.913635
+offset_bottom = 63.08899
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.69284785, 0.64896077)
+theme_override_colors/font_color = Color(0.61810297, 0.5740486, 0.634564, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_sgjsn")
+text = "START"

@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
-@export var death_y: float = 1000.0
+@export var death_y: float = 100000.0
 @export var scale_speed: float = 2.0
 @export var max_scale: float = 4.0
 @export var min_scale: float = 0.25
