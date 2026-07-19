@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kenney Scale Game Jam"
-run/main_scene="res://entities/blob/level.tscn"
+run/main_scene="uid://dtfiyvl6bgx32"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
