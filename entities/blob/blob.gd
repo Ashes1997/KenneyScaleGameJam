@@ -12,6 +12,9 @@ const JUMP_VELOCITY = -500.0
 @export var slingshot_strength: float = 750
 var target:float=1.0
 var target_gravity:float=1.0
+var is_hanging: bool = false
+var grab_anchor: Vector2 = Vector2.ZERO
+var base_arm_length: float = 0.0
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("scale_up"):
@@ -29,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y += JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	
@@ -42,8 +45,24 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
+	if is_hanging:
+		var max_len := base_arm_length * target
+		var to_blob := global_position - grab_anchor
+		if to_blob.length() > max_len:
+			var dir := to_blob.normalized()
+			global_position = grab_anchor + dir * max_len
+			var radial := velocity.dot(dir)
+			if radial > 0.0:
+				velocity -= dir * radial
+
 func slingshot_to(anchor_position:Vector2):
-	print("anchor: ", anchor_position, "  blob: ", global_position)
 	var direction: Vector2 = (anchor_position - global_position).normalized()
 	velocity += direction*slingshot_strength
-	
+
+func on_grabbed(anchor_position: Vector2, arm_length: float) -> void:
+	is_hanging = true
+	grab_anchor = anchor_position
+	base_arm_length = arm_length
+
+func on_released() -> void:
+	is_hanging = false

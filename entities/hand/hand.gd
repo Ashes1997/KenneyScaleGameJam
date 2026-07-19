@@ -24,8 +24,10 @@ func _ready() -> void:
 	hand_sprite.texture = open_texture
 
 func _physics_process(delta: float) -> void:
+	var body_scale: float = body.scale.x
+	scale = Vector2(body_scale, body_scale)
 	if not is_grabbing:
-		var offset: Vector2 = (get_global_mouse_position() - body.global_position).limit_length(arm_radius)
+		var offset: Vector2 = (get_global_mouse_position() - body.global_position).limit_length(arm_radius * body_scale)
 		global_position = body.global_position + offset
 		hand_sprite.rotation = offset.angle() + 90
 
